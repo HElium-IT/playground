@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@mdi/js": "^7.4.47",
+    "@react-three/drei": "^9.106.0",
+    "@tresjs/cientos": "^3.9.0",
     "@tresjs/core": "^4.0.0",
     "three": "^0.165.0",
     "vue": "^3.4.21",

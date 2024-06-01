@@ -12,11 +12,11 @@ import Grid from './components/Grid.vue'
         <Header />
       </v-col>
     </v-row>
-    <v-row align="stretch">
+    <v-row>
       <v-col class="pa-1" no-gutters cols="1" >
         <Toolbar/>
       </v-col>
-      <v-col class="pa-1"  style="height: max-content;">
+      <v-col class="pa-1" cols="11" >
         <Grid/>
       </v-col>
     </v-row>
