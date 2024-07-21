@@ -1,36 +1,27 @@
 <template>
-
-    <v-card title="Canvas">
-        <v-card-text style="height: 70vh">
-            <TresCanvas clear-color="#82DBC5" >
-                <TresPerspectiveCamera :position="[5, 5, 5]" />
-                <CameraControls
-                v-bind="controlsState"
-                make-default
-                :mouse-buttons="{ left: BaseCameraControls.ACTION.DOLLY }"
-                :touches="{ one: BaseCameraControls.ACTION.TOUCH_TRUCK }"
-                />
-                <TresGridHelper :position="[0, -1, 0]" />
-                <Box :scale="2">
-                <TresMeshToonMaterial color="orange" />
-                </Box>
-                <TresAmbientLight />
-                <TresDirectionalLight :position="[0, 2, 4]" />
-            </TresCanvas>
-        </v-card-text>
-    </v-card>
-
+  <v-card title="Canvas">
+    <v-card-text style="height: 70vh">
+      <TresCanvas clear-color="#82DBC5">
+        <TresPerspectiveCamera :position="[3, 3, 3]" :look-at="[0, 0, 0]" />
+        <!-- <TresMesh>
+          <TresTorusGeometry :args="[1, 0.5, 16, 32]" />
+          <TresMeshBasicMaterial color="orange" />
+        </TresMesh> -->
+        <TresGridHelper :position="[0, 0, 0]" />
+        <TresAmbientLight :intensity="1" />
+        <OrbitControls />
+        <template v-for="object in gridObjects">
+          <component :is="object.component" />
+        </template>
+      </TresCanvas>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script setup lang="ts">
+import { inject, reactive } from "vue";
+import { TresCanvas } from "@tresjs/core";
+import OrbitControls from "./OrbitControls.vue";
 
-import { reactive } from 'vue';
-import { TresCanvas } from '@tresjs/core'
-import { CameraControls, BaseCameraControls } from '@tresjs/cientos'
-
-const controlsState = reactive({
-  minDistance: 0,
-  maxDistance: 100,
-})
-
+const gridObjects = inject("gridObjects");
 </script>
