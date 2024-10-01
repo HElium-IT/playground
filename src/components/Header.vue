@@ -2,7 +2,7 @@
     <v-card>
         <v-toolbar color="transparent">
             <template v-slot:prepend>
-            <v-btn icon="$menu"></v-btn>
+                <v-btn icon="$menu"></v-btn>
             </template>
 
             <v-toolbar-title class="text-h6 titlebar" :text="title"></v-toolbar-title>
